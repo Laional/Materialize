@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+* {
+    font-family: 'Lobster', cursive;
+}
+
+h1 {
+    color: white;
+    background-color: blue;
+    padding: 10px;
+    text-shadow: 4px 4px 2px rgba(0,0,0,1);
+}
+
+.cabezera, .pie {
+    width: 100%;
+}
+
+.cabezera, .caja1, .caja2, .pie {
+    float: left;
+}
+
+.container {
+    width: 800px;
+    text-align: center;
+}
+
+.cabecera {
+    height: 60px;
+    background-color: chartreuse;
+}
+
+.caja1 {
+    width: 30%;
+    height: 300px;
+}
+
+.caja1 h2 {
+    color: white;
+    background-color: black;
+    
+}
+
+.caja2 {
+    height: 300px;
+    width: 70%;
+    background-color: coral;
+}
+
+.caja2 h2 {
+    color: red;
+    background-color: white;
+    padding: 1.5em;
+    border-radius: 8px;
+}
+
+.pie {
+    height: 90px;
+    background-color: crimson;
+}
