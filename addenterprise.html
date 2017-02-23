@@ -17,48 +17,66 @@
         <!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/scriptform.js"></script>
 
-        <script>
+        <!-- <script>
             $(document).ready(function() {
+                // para que nos carge las listas desplegable de select
                 $('select').material_select();
+                // para hacer la función submit con Ajax/JQuery
+                // ponemos la id '#', class '.' o form 'form' para saber a lo que nos referimos
+                // cuando aiga un ".submit" que haga una funció
+                $("#addEmpresa").submit(function(event){
+                    // evita el refresh automatico que se produce al enviar el formulario
+                    event.preventDefault();
+                    // Imprimimos en log de la consola para saber si funciona
+                    console.log('Se va a enviar formulario.')
+                    // Creamos una variable SERIALIZADO. le decimos que con la funcion SERIALIZE coja todas las IDs de addEmpresa
+                    var serializado = $('#addEmpresa').serialize();
+                    // Imprimimos en log de la consola para saber si funciona
+                    console.log('Formulario serializado:'+serializado);
+                    //
+                    var serializadoArray = $("addEmpresa").serializeArray();
+                    console.log("Variables array recogidas del formulario ==>");
+                    console.log(serializadoArray);
+                });
             });
-        </script>
-
+        </script> -->
 
         <div class="container">
             <!-- Creamos un form para el formulario -->
-            <form action="php/formulario.php" class="formulario" method="POST">
+            <form action="" id="addEmpresa" method="POST">
                 <!-- Creamos una fila -->
                 <div class="row">
                     <!-- Creamos el campo NOMBRE DE LA EMPRESA y lo limitamos con un texto maximo de 100 caracteres -->
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="Nombre de la empresa" id="nEmpresa" type="text" name="nEmpresa" class="validate" maxlength="100">
+                        <input placeholder="Nombre de la empresa" id="nEmpresa" type="text" name="nEmpresa" class="validate" maxlength="100" value="A.D.P.">
                         <label for="nEmpresa" data-success="Correcto">Nombre de la Empresa</label>
                     </div>
                     <!-- Creamos el campo CIF, creamos un "pattern" para obligarlo a seguir una regla y le damos un máximo de 15 caracteres -->
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="CIF" id="cif" type="text" name="cif" class="validate" maxlength="15" pattern="(([A_Za-z]{1})([-]?)([0-9]{8}))">
+                        <input placeholder="CIF" id="cif" type="text" name="cif" class="validate" maxlength="15" pattern="(([A-Za-z]{1})([-]?)([0-9]{8}))" value="x12345678">
                         <label for="cif" data-error="CIF Incorrecto" data-success="Correcto">CIF</label>
 
                     </div>
                     <!-- Creamos el campo DIRECCIÓN y lo limitamos con un texto maximo de 100 caracteres -->
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="Calle/Avda/Rambla número y piso" id="direccion" type="text" name="direccion" class="validate" maxlength="100">
+                        <input placeholder="Calle/Avda/Rambla número y piso" id="direccion" type="text" name="direccion" class="validate" maxlength="100" value="Carrer d'aigua 44, 1-1">
                         <label for="direccion" data-success="Correcto">Dirección</label>
                     </div>
                     <!-- Creamos el campo PAÍS y lo limitamos con un texto maximo de 100 caracteres -->
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="País" id="pais" type="text" name="pais" class="validate" maxlength="100">
+                        <input placeholder="País" id="pais" type="text" name="pais" class="validate" maxlength="100" value="España">
                         <label for="pais" data-success="Correcto">País</label>
                     </div>
                     <!-- Creamos el campo Código Postal y creamos un "pattern" para obligarlo a seguir una regla-->
                     <div class="col s12 m6 l6 input-field">
-                        <input maxlenght="5" id="cp" type="text" name="cp" class="validate" pattern="[0-9]{5}">
+                        <input maxlenght="5" id="cp" type="text" name="cp" class="validate" pattern="[0-9]{5}" value="08815">
                         <label for="cp" data-error="Error Código Postal" data-success="Correcto">Código Postal</label>
                     </div>
                     <!-- Creamos el campo POBLACIÓN y lo limitamos con un texto maximo de 100 caracteres -->
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="Población" id="poblacion" type="text" name="poblacion" class="validate" maxlength="100">
+                        <input placeholder="Población" id="poblacion" type="text" name="poblacion" class="validate" maxlength="100" value="Barcelona">
                         <label for="poblacion" data-success="Correcto">Población</label>
                     </div>
                     <!-- Creamos el campo PROVINCIA y hacemos que sea un selector para limitar las opciones -->
@@ -74,12 +92,12 @@
                     </div>
                     <!-- Creamos el campo EMAIL y lo limitamos con un texto maximo de 100 caracteres -->
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="Email" id="email" type="email" maxlength="100" class="validate">
+                        <input placeholder="Email" id="email" name="email" type="email" maxlength="100" class="validate" value="cdo@cdo.es">
                         <label for="email" data-error="Email Incorrecto" data-success="Correcto">Email</label>
                     </div>
                     
                     <div class="col s12 m6 l6 input-field">
-                        <input placeholder="0034679138673" id="telefono" name="telefono" type="tel" class="validate" pattern="[0-9]{13}" maxlength="13">
+                        <input placeholder="0034679138673" id="telefono" name="telefono" type="tel" class="validate" pattern="[0-9]{13}" maxlength="13" value="0034645978312">
                         <label for="telefono" data-error="Error en el telefono" data-success="Correcto">Teléfono</label>
                     </div>
 
