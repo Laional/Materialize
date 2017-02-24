@@ -15,7 +15,7 @@ $(document).ready(function() {
         var serializado = $("#addEmpresa").serialize();
         // Imprimimos en log de la consola para saber si funciona
         if (debug) console.log("Formulario serializado:" + serializado);
-        // colocamos todos los datos en un ARRAY LIST
+        // colocamos todos los datos en un ARRAY LIST (nombre/campo y valor/campo)
         var serializadoArray = $("#addEmpresa").serializeArray();
         // Le dedcimos que nos lo muestre en la consola
         if (debug) console.log("Variables array recogidas del formulario ==>");
@@ -35,7 +35,9 @@ $(document).ready(function() {
             // Imprecindible para saber si hay errores i/o buen funcionamiento
             success: function(result){
                 if (debug) {
-                    console.log(result.testeo);
+                    //console.log(result.campos);
+                    console.log(result.error);
+                    console.log(result.sql);
                 }
             },
             error: function(result){
@@ -45,5 +47,4 @@ $(document).ready(function() {
         
 
     });
-});
-            
+});            
